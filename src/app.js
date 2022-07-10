@@ -1,9 +1,8 @@
-/* Call functions when the site starts
+// Call functions when the site starts
 window.onload = () => {
    createMarker();
-}*/
+}
 
-/*
 // Creates AFrame elements to render a mushroom cloud at the specified marker
 function createMarker() {
     // Find a-scene
@@ -27,12 +26,5 @@ function createMarker() {
     // Add elements to scene
     marker.appendChild(model);
     scene.appendChild(marker);
-} */
-
-function testConsole() {
-    return "Webpack test Console"
 }
-
-export default testConsole
-
 
