@@ -1,4 +1,4 @@
-// Call functions when the site starts
+/* Call functions when the site starts
 window.onload = () => {
    createMarker();
 }
@@ -27,4 +27,12 @@ function createMarker() {
     marker.appendChild(model);
     scene.appendChild(marker);
 }
+*/
 
+/*
+AFRAME.registerComponent('cloud', {
+    schema: {
+
+    }
+})
+*/
