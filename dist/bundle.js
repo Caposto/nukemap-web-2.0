@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _gesture__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gesture */ \"./src/gesture.js\");\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app */ \"./src/app.js\");\n\r\n\r\n\r\nwindow.onload = () => {\r\n    (0,_gesture__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\r\n    ;(0,_app__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\r\n}\r\n    \r\n\n\n//# sourceURL=webpack://nukemap-web/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _gesture__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gesture */ \"./src/gesture.js\");\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app */ \"./src/app.js\");\n\r\n\r\n\r\nwindow.onload = () => {\r\n    (0,_gesture__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\r\n    ;(0,_app__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\r\n    console.log(\"pk.eyJ1IjoiY2Fwb3N0byIsImEiOiJjbDVrMmFsZGkwM21lM2pwYjA0MXp3emtiIn0.-8a1LRasBFIVscNeYoGE4Q\")\r\n}\r\n    \r\n\n\n//# sourceURL=webpack://nukemap-web/./src/index.js?");
 
 /***/ })
 
