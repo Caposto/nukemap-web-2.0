@@ -1,8 +1,3 @@
-// Call functions when the site starts
-window.onload = () => {
-   createMarker();
-}
-
 // Creates AFrame elements to render a mushroom cloud at the specified marker
 function createMarker() {
     // Find a-scene
@@ -28,3 +23,4 @@ function createMarker() {
     scene.appendChild(marker);
 }
 
+export default createMarker

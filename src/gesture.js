@@ -1,7 +1,8 @@
 /* global AFRAME, THREE */
 // Courtesy of https://github.com/fcor/arjs-gestures/blob/master/dist/gestures.js 
 
-AFRAME.registerComponent("gesture-handler", {
+function registerGestureComponents() {
+  AFRAME.registerComponent("gesture-handler", {
     schema: {
       enabled: { default: true },
       rotationFactor: { default: 5 },
@@ -233,3 +234,6 @@ AFRAME.registerComponent("gesture-handler", {
       return numberNames[Math.min(touchCount, 4) - 1];
     }
   });
+}
+
+export default registerGestureComponents
