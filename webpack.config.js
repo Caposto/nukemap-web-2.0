@@ -34,8 +34,14 @@ module.exports = {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
+            {
+                test: /\.js$/,
+                enforce: "pre",
+                use: ["source-map-loader"]
+            },
         ],
     },
+    target: 'web',
     devServer: {
         static: {
             directory: path.resolve(__dirname, 'dist')
