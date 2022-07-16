@@ -1,18 +1,26 @@
-// Component that takes latitude and longitude inputs and a set radius to generate a 3D WebGL map compaitible in AR.js
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
 
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY
 
+const bounds = [
+    [-122.66336, 37.492987], // Southwest coordinates
+    [-122.250481, 37.871651] // Northeast coordinates
+];
+
 const map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/light-v10',
-    center: [-74.0066, 40.7135],
-    zoom: 15.5,
-    pitch: 45,
-    bearing: -17.6,
+    center: [-74.0060, 40.7128],
+    zoom: 12.5,
+    minZoom: 12.5,
+    maxZoom: 16,
+    pitch: 60,
+    bearing: -10,
     container: 'map',
-    antialias: true
+    antialias: true,
 })
+
+// maxBounds, maxPitch, minPitch, maxTileCacheSize, minTileCacheSizemaxZoom, minZoom, 
      
 map.on('load', () => {
     // Insert the layer beneath any symbol layer.
@@ -20,9 +28,9 @@ map.on('load', () => {
     const labelLayerId = layers.find(
     (layer) => layer.type === 'symbol' && layer.layout['text-field']).id
      
-    // The 'building' layer in the Mapbox Streets
-    // vector tileset contains building height data
-    // from OpenStreetMap.
+// The 'building' layer in the Mapbox Streets
+// vector tileset contains building height data
+// from OpenStreetMap.
 map.addLayer(
     {
         'id': 'add-3d-buildings',
@@ -30,7 +38,7 @@ map.addLayer(
         'source-layer': 'building',
         'filter': ['==', 'extrude', 'true'],
         'type': 'fill-extrusion',
-        'minzoom': 15,
+        'minzoom': 10,
         'paint': {
         'fill-extrusion-color': '#aaa',
      
