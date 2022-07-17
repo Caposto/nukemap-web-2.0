@@ -1,12 +1,16 @@
+// Code from: https://docs.mapbox.com/mapbox-gl-js/example/3d-buildings/
+
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
 
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY
 
+/* FIXME: Bounds does not affect a 3D rendered map
 const bounds = [
     [-122.66336, 37.492987], // Southwest coordinates
     [-122.250481, 37.871651] // Northeast coordinates
 ];
+*/
 
 const map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/light-v10',

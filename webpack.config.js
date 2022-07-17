@@ -6,8 +6,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     mode: 'development',
     entry: {
-        bundle: path.resolve(__dirname, 'src/index.js'),
-        mapbox: path.resolve(__dirname, 'src/map.js')
+        bundle: path.resolve(__dirname, 'src/entries/index.js'),
+        mapbox: path.resolve(__dirname, 'src/entries/map.js')
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -18,13 +18,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Marker AR',
             filename: 'index.html',
-            template: 'src/marker.html',
+            template: 'src/templates/marker.html',
             chunks: ["bundle"],
         }),
         new HtmlWebpackPlugin({
             title: 'Mapbox Rendering',
             filename: 'mapbox.html',
-            template: 'src/map.html',
+            template: 'src/templates/map.html',
             chunks: ["mapbox"],
         })
     ],
