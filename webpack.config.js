@@ -7,6 +7,7 @@ module.exports = {
     mode: 'development',
     entry: {
         bundle: path.resolve(__dirname, 'src/entries/index.js'),
+        map: path.resolve(__dirname, 'src/components/mapbox.component.js')
         // mapbox: path.resolve(__dirname, 'src/entries/map.js')
     },
     output: {
@@ -21,6 +22,12 @@ module.exports = {
             template: 'src/templates/marker.html',
             chunks: ["bundle"],
         }),
+        new HtmlWebpackPlugin({
+            title: 'Map AR',
+            filename: 'mapar.html',
+            template: 'src/templates/marker.html',
+            chunks: ["map"],
+        })
         /* DISABLED ENTRY SO NOT TO WASTE API REQUESTS
         new HtmlWebpackPlugin({
             title: 'Mapbox Rendering',
@@ -44,9 +51,7 @@ module.exports = {
                 test: /\.(glb|gltf|patt)$/,
                 use: [
                     {loader: 'file-loader',
-                     options: {
-                        outputPath: 'assets'
-                     }
+                     options: { outputPath: 'assets'}
                     }
                 ]
             }
