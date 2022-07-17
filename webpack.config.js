@@ -7,7 +7,7 @@ module.exports = {
     mode: 'development',
     entry: {
         bundle: path.resolve(__dirname, 'src/entries/index.js'),
-        mapbox: path.resolve(__dirname, 'src/entries/map.js')
+        // mapbox: path.resolve(__dirname, 'src/entries/map.js')
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -21,12 +21,13 @@ module.exports = {
             template: 'src/templates/marker.html',
             chunks: ["bundle"],
         }),
+        /* DISABLED ENTRY SO NOT TO WASTE API REQUESTS
         new HtmlWebpackPlugin({
             title: 'Mapbox Rendering',
             filename: 'mapbox.html',
             template: 'src/templates/map.html',
             chunks: ["mapbox"],
-        })
+        }) */
     ],
     module: {
         rules: [
@@ -39,6 +40,16 @@ module.exports = {
                 enforce: "pre",
                 use: ["source-map-loader"]
             },
+            {
+                test: /\.(glb|gltf|patt)$/,
+                use: [
+                    {loader: 'file-loader',
+                     options: {
+                        outputPath: 'assets'
+                     }
+                    }
+                ]
+            }
         ],
     },
     target: 'web',
@@ -51,10 +62,13 @@ module.exports = {
         hot: true,
         compress: true,
         historyApiFallback: true,
-        https: {
-            key: fs.readFileSync(path.resolve(__dirname, 'https/cert.key')),
-            cert: fs.readFileSync(path.resolve(__dirname, 'https/cert.crt')),
-            ca: fs.readFileSync(path.resolve(__dirname, 'https/ca.crt'))
+        server: {
+            type: 'https',
+            options: {
+                key: fs.readFileSync(path.resolve(__dirname, 'https/cert.key')),
+                cert: fs.readFileSync(path.resolve(__dirname, 'https/cert.crt')),
+                ca: fs.readFileSync(path.resolve(__dirname, 'https/ca.crt'))
+            }
         },
     },
 }
