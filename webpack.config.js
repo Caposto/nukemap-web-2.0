@@ -48,7 +48,7 @@ module.exports = {
                 use: ["source-map-loader"]
             },
             {
-                test: /\.(glb|gltf|patt)$/,
+                test: /\.(glb|gltf|patt|jpg)$/,
                 use: [
                     {loader: 'file-loader',
                      options: { outputPath: 'assets'}
