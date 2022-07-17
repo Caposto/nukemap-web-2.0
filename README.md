@@ -1,4 +1,4 @@
-#Nukemap Web 2.0
+# Nukemap Web 2.0
 
 As part of my Summer Research for Professor Wellerstein at Stevens Institute of Technology, I am investigating how Augmented Reality (AR) can be used to visualize nuclear weapons and their mushroom clouds at scale. While most AR applications are made to run natively on headsets and smartphones, I decided to explore web-based approaches for creating AR experiences.
 
