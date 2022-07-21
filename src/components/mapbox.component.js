@@ -10,7 +10,7 @@ import mapboxgl from 'mapbox-gl'
 const scene = document.querySelector('a-scene')
 
 window.onload = () => {
-    // registerMapComponent()
+    registerMapComponent()
     createMapAtMarker()
     // createImageAtMarker()
 }
@@ -33,7 +33,21 @@ function registerMapComponent() {
             const container_name = "a-entity"
             let access_key = process.env.MAPBOX_API_KEY
 
+            this.el.object3D = createMapMesh(center, zoom, style, access_key)
 
+            function createMapMesh(center, zoom, style, access_key) {
+                mapboxgl.accessToken = access_key
+
+                let map = new mapboxgl.Map({
+                    container: "",
+                    style: style,
+                    center: center,
+                    zoom: zoom,
+                    project: "globe"
+                })
+
+                return map
+            }
         },
 })
 }
@@ -47,30 +61,12 @@ function createMapAtMarker() {
     marker.setAttribute('url', mushroomMarker)
 
     // Add map component to scene
-    // let map_container = document.createElement('a-entity');
-    // map.setAttribute('mapbox-map', ''); 
-
-    let map_container = document.createElement('a-entity')
-    map_container.setAttribute('id', 'map')
-
-    marker.appendChild(map_container);
-    scene.appendChild(marker);
-
-    mapboxgl.accessToken = process.env.MAPBOX_API_KEY
-
-    const map = new mapboxgl.Map({
-        container: 'map', 
-        style: 'mapbox://styles/mapbox/streets-v11', 
-        center: [-74.5, 40], 
-        zoom: 9,
-        projection: 'globe' 
-    });
-
-    map.on('style.load', () => { map.setFog({}); });
+    let map = document.createElement('a-entity');
+    map.setAttribute('mapbox-map', ''); 
 
     // Add elements to scene
-    // marker.appendChild(map_container);
-    // scene.appendChild(marker);
+    marker.appendChild(map);
+    scene.appendChild(marker);
 }
 
 // Function for creating map image
