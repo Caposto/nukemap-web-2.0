@@ -1,19 +1,5 @@
-// import mushroomMarker from './assets/mushroom-marker.patt'
-// import mapboxgl from 'mapbox-gl'
-
 import * as THREE from 'three'
-import nyc_map from '../assets/nyc.jpg'
-import mushroomMarker from '../assets/mushroom-marker.patt'
 import mapboxgl from 'mapbox-gl'
-
-// Container A-Frame Scene
-const scene = document.querySelector('a-scene')
-
-window.onload = () => {
-    registerMapComponent()
-    createMapAtMarker()
-    // createImageAtMarker()
-}
 
 function registerMapComponent() {
     AFRAME.registerComponent('mapbox-map', {
@@ -49,38 +35,7 @@ function registerMapComponent() {
                 return map
             }
         },
-})
+    })
 }
 
-// FIXME: Change attributes to render map on the marker instead of mushroom cloud
-function createMapAtMarker() {
-    // Create Marker
-    let marker = document.createElement('a-marker');
-    marker.setAttribute('type', 'pattern');
-    marker.setAttribute('preset', 'custom');
-    marker.setAttribute('url', mushroomMarker)
-
-    // Add map component to scene
-    let map = document.createElement('a-entity');
-    map.setAttribute('mapbox-map', ''); 
-
-    // Add elements to scene
-    marker.appendChild(map);
-    scene.appendChild(marker);
-}
-
-// Function for creating map image
-function createImageAtMarker() {
-    let marker = document.createElement('a-marker');
-    marker.setAttribute('type', 'pattern');
-    marker.setAttribute('preset', 'custom');
-    marker.setAttribute('url', mushroomMarker)
-
-    let image = document.createElement('a-image')
-    image.setAttribute('src', nyc_map)
-    image.setAttribute('rotation', '270, 0, 0')
-
-    // Add elements to scene
-    marker.appendChild(image);
-    scene.appendChild(marker);
-}
+export default registerMapComponent

@@ -7,7 +7,7 @@ module.exports = {
     mode: 'development',
     entry: {
         bundle: path.resolve(__dirname, 'src/entries/index.js'),
-        map: path.resolve(__dirname, 'src/components/mapbox.component.js')
+        map: path.resolve(__dirname, 'src/entries/indexMap.js')
         // mapbox: path.resolve(__dirname, 'src/entries/map.js')
     },
     output: {
