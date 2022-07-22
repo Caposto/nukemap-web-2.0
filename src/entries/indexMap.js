@@ -1,6 +1,7 @@
 import nyc_map from '../assets/nyc.jpg'
 import mushroomMarker from '../assets/mushroom-marker.patt'
 import registerMapComponent from '../components/mapbox.component'
+import registerGestureComponents from '../components/gesture.component'
 
 window.onload = () => {
     registerMapComponent()
@@ -24,7 +25,15 @@ function createMapAtMarker() {
 
     // Add map component to scene
     let map = document.createElement('a-entity');
-    map.setAttribute('mapbox-map', ''); 
+    map.setAttribute('geometry', 'primitive: plane; width: 4; height: 3;');
+    map.setAttribute('material', 'color: #ffffff; shader: flat; side: both; transparent: true');
+    map.setAttribute('mapbox', "center: -74.0060, 40.7128; zoom: 8; " +
+                                   "accessToken: pk.eyJ1IjoibWF0dHJlIiwiYSI6IjRpa3ItcWcifQ.s0AGgKi0ai23K5OJvkEFnA; " +
+                                   "style: mapbox://styles/mapbox/outdoors-v10;"); 
+    map.setAttribute('rotation', '270, 0, 0')
+
+    // NYC center: -74.0060, 40.7128;
+    // London center: -0.1276, 51.5072;
 
     // Add elements to scene
     marker.appendChild(map);
