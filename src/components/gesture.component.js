@@ -5,7 +5,7 @@ function registerGestureComponents() {
   AFRAME.registerComponent("gesture-handler", {
     schema: {
       enabled: { default: true },
-      rotationFactor: { default: 5 },
+      rotationFactor: { default: 5 }, // Rotation speed
       minScale: { default: 0.3 },
       maxScale: { default: 8 },
     },
@@ -17,7 +17,8 @@ function registerGestureComponents() {
       this.isVisible = false;
       this.initialScale = this.el.object3D.scale.clone();
       this.scaleFactor = 1;
-  
+      
+      // Adds event listeners so that rotation and scaling are only allowed when marker is visible
       this.el.sceneEl.addEventListener("markerFound", (e) => {
         this.isVisible = true;
       });

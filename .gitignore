@@ -3,3 +3,5 @@
 /https
 
 /node_modules
+
+.env
