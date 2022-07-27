@@ -7,8 +7,8 @@ module.exports = {
     mode: 'development',
     entry: {
         bundle: path.resolve(__dirname, 'src/entries/index.js'),
-        map: path.resolve(__dirname, 'src/entries/indexMap.js')
-        // mapbox: path.resolve(__dirname, 'src/entries/map.js')
+        // map: path.resolve(__dirname, 'src/entries/indexMap.js') // Table Top AR with Mapbox
+        // mapbox: path.resolve(__dirname, 'src/entries/map.js')   // Plain Mapbox GL JS
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -22,12 +22,13 @@ module.exports = {
             template: 'src/templates/marker.html',
             chunks: ["bundle"],
         }),
+        /* HTML Plugin for table top AR - Disabled to avoid wasting API requests
         new HtmlWebpackPlugin({
             title: 'Map AR',
             filename: 'mapar.html',
             template: 'src/templates/marker.html',
             chunks: ["map"],
-        })
+        }) */
         /* DISABLED ENTRY SO NOT TO WASTE API REQUESTS
         new HtmlWebpackPlugin({
             title: 'Mapbox Rendering',

@@ -8,6 +8,7 @@ require('mapbox-gl/dist/mapbox-gl.css')
 const extendDeep = AFRAME.utils.extendDeep;
 const meshMixin = AFRAME.primitives.getMeshMixin();
 
+// Generates collision resistant IDs
 const cuid = require('cuid');
 
 const mapboxgl = require('mapbox-gl');
@@ -15,6 +16,7 @@ const mapboxgl = require('mapbox-gl');
 const MAP_LOAD_EVENT = 'mapbox-load';
 const MAP_LOADED_EVENT = 'mapbox-loaded';
 const MAP_MOVE_END_EVENT = 'mapbox-moveend';
+
 
 function parseSpacedFloats (value, count, attributeName) {
   if (!value) {
@@ -290,6 +292,7 @@ AFRAME.registerComponent('mapbox', {
   
       this.mapInstance.once('load', _ => {
         this.mapInstance.resize();
+
         processMapboxCanvasElement(this.mapInstance, canvasContainer);
         const canvasId = document.querySelector(`#${this._canvasContainerId} canvas`).id;
   
