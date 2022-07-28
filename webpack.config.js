@@ -7,6 +7,7 @@ module.exports = {
     mode: 'development',
     entry: {
         bundle: path.resolve(__dirname, 'src/entries/index.js'),
+        mushroom: path.resolve(__dirname, 'src/entries/cloud.js')
         // map: path.resolve(__dirname, 'src/entries/indexMap.js') // Table Top AR with Mapbox
         // mapbox: path.resolve(__dirname, 'src/entries/map.js')   // Plain Mapbox GL JS
     },
@@ -22,6 +23,12 @@ module.exports = {
             template: 'src/templates/marker.html',
             chunks: ["bundle"],
         }),
+        new HtmlWebpackPlugin({
+            title: 'Mushroom Cloud Model',
+            filename: 'mushroom.html',
+            template: 'src/templates/three.html',
+            chunks: ["mushroom"],
+        })
         /* HTML Plugin for table top AR - Disabled to avoid wasting API requests
         new HtmlWebpackPlugin({
             title: 'Map AR',
