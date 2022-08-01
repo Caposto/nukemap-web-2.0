@@ -13,17 +13,27 @@ function createMarker() {
     marker.setAttribute('preset', 'custom');
     marker.setAttribute('url', mushroomMarker)
 
-    // Create GLTF model
-    let model = document.createElement('a-entity');
-    model.setAttribute('gltf-model', nycModel);
-    model.setAttribute('position', '0 0 0');
-    model.setAttribute('scale', '0.001 0.001 0.001');
-    model.setAttribute('rotation', '0 90 -90'); // For when Marker is veritcal
-    model.setAttribute('class', 'clickable'); 
-    model.setAttribute('gesture-handler', 'minScale: 0.005, maxScale: 0.01'); // For touch events
+    // Create GLTF model of NYC Map
+    let map = document.createElement('a-entity');
+    map.setAttribute('gltf-model', nycModel);
+    map.setAttribute('position', '0 0 0');
+    map.setAttribute('scale', '0.001 0.001 0.001');
+    map.setAttribute('rotation', '0 90 -90'); // For when Marker is veritcal
+    map.setAttribute('class', 'clickable'); 
+    map.setAttribute('gesture-handler', 'minScale: 0.005, maxScale: 0.01'); // For touch events
+
+    // Create GLTF model of Mushroom Cloud
+    let cloud = document.createElement('a-entity');
+    cloud.setAttribute('gltf-model', mushroomModel);
+    cloud.setAttribute('position', '0 -1 0');
+    cloud.setAttribute('scale', '0.003 0.005 0.003');
+    cloud.setAttribute('rotation', '0 90 -90'); // For when Marker is veritcal
+    cloud.setAttribute('class', 'clickable'); 
+    cloud.setAttribute('gesture-handler', 'minScale: 0.005, maxScale: 0.01'); // For touch events
 
     // Add elements to scene
-    marker.appendChild(model);
+    marker.appendChild(cloud)
+    marker.appendChild(map);
     scene.appendChild(marker);
 }
 
