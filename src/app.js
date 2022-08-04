@@ -1,6 +1,6 @@
 import mushroomMarker from './assets/mushroom-marker.patt'
 import mushroomModel from './assets/mushroom_cloud/mushroomRealistic.glb'
-import nycModel from './assets/nyc/nyc.glb'
+import nycModel from './assets/nyc/NYC.glb'
 
 // Creates AFrame elements to render a mushroom cloud at the specified marker
 function createMarker() {
