@@ -13,6 +13,19 @@ window.onload = () => {
     registerArCursorComponent()
     registerShadowComponent()
     registerMainComponent()
+
+    let assets = document.querySelector('a-assets')
+    let map_asset = document.createElement('a-asset-item')
+    map_asset.setAttribute('id', 'city')
+    map_asset.setAttribute('src', nyc_map)
+    assets.appendChild(map_asset)
+
+    let container = document.getElementById("my-objects")
+    let map = document.createElement("a-gltf-model")
+    map.setAttribute('src', '#city')
+    map.setAttribute('scale', '0.0005 0.0005 0.0005')
+
+    container.appendChild(map)
 }
 
 function createReticle() {
