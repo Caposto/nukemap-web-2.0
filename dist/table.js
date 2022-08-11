@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/assets/mushroom_cloud/mushroomRealistic.glb":
+/*!*********************************************************!*\
+  !*** ./src/assets/mushroom_cloud/mushroomRealistic.glb ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"assets/b92d94cb5c318657f38b997631020e41.glb\");\n\n//# sourceURL=webpack://nukemap-web/./src/assets/mushroom_cloud/mushroomRealistic.glb?");
+
+/***/ }),
+
 /***/ "./src/assets/nyc/NYC.glb":
 /*!********************************!*\
   !*** ./src/assets/nyc/NYC.glb ***!
@@ -20,13 +30,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/components/ar-cursor.component.js":
+/*!***********************************************!*\
+  !*** ./src/components/ar-cursor.component.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction registerArCursorComponent() {\r\n    /* jshint esversion: 9 */\r\n    /* global THREE, AFRAME */\r\n    (function() {\r\n        \"use strict\";\r\n        const direction = new THREE.Vector3();\r\n    \r\n        AFRAME.registerComponent(\"ar-cursor\", {\r\n        dependencies: [\"raycaster\"],\r\n        init() {\r\n            const sceneEl = this.el;\r\n            sceneEl.addEventListener(\"enter-vr\", () => {\r\n            if (sceneEl.is(\"ar-mode\")) {\r\n                sceneEl.xrSession.addEventListener(\"select\", this.onselect.bind(this));\r\n            }\r\n            });\r\n        },\r\n        onselect(e) {\r\n            const frame = e.frame;\r\n            const inputSource = e.inputSource;\r\n            const referenceSpace = this.el.renderer.xr.getReferenceSpace();\r\n            const pose = frame.getPose(inputSource.targetRaySpace, referenceSpace);\r\n            const transform = pose.transform;\r\n            \r\n            direction.set(0, 0, -1);\r\n            direction.applyQuaternion(transform.orientation);\r\n            this.el.setAttribute(\"raycaster\", {\r\n            origin: transform.position,\r\n            direction\r\n            });\r\n            this.el.components.raycaster.checkIntersections();\r\n            const els = this.el.components.raycaster.intersectedEls;\r\n            for (const el of els) {\r\n            const obj = el.object3D;\r\n            let elVisible = obj.visible;\r\n            obj.traverseAncestors(parent => {\r\n                if (parent.visible === false ) {\r\n                elVisible = false\r\n                }\r\n            });\r\n            if (elVisible) {\r\n                \r\n                // Cancel the ar-hit-test behaviours\r\n                this.el.components['ar-hit-test'].hitTest = null;\r\n                this.el.components['ar-hit-test'].bboxMesh.visible = false;\r\n                \r\n                // Emit click on the element for events\r\n                const details = this.el.components.raycaster.getIntersection(el);\r\n                el.emit('click', details);\r\n                \r\n                // Don't go to the next element\r\n                break;\r\n            }\r\n            }\r\n        }\r\n        });\r\n    })();\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (registerArCursorComponent);\n\n//# sourceURL=webpack://nukemap-web/./src/components/ar-cursor.component.js?");
+
+/***/ }),
+
 /***/ "./src/entries/table.js":
 /*!******************************!*\
   !*** ./src/entries/table.js ***!
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_nyc_NYC_glb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/nyc/NYC.glb */ \"./src/assets/nyc/NYC.glb\");\n/**\r\n * Tabletop prototype with Hit-Testing (Maybe Anchoring) using WebXR, ThreeJS, A-Frame\r\n */\r\n\r\n\r\nwindow.onload = () => {\r\n    createReticle()\r\n}\r\n\r\nfunction createReticle() {\r\n    let container = document.querySelector('a-scene')\r\n\r\n    let reticle = document.createElement('a-entity')\r\n\r\n    reticle.setAttribute('id', 'reticle')\r\n    reticle.setAttribute('gltf-model', _assets_nyc_NYC_glb__WEBPACK_IMPORTED_MODULE_0__[\"default\"])\r\n    reticle.setAttribute('scale', '0.001 0.001 0.001')\r\n\r\n    container.appendChild(reticle)\r\n}\n\n//# sourceURL=webpack://nukemap-web/./src/entries/table.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_nyc_NYC_glb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/nyc/NYC.glb */ \"./src/assets/nyc/NYC.glb\");\n/* harmony import */ var _assets_mushroom_cloud_mushroomRealistic_glb__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/mushroom_cloud/mushroomRealistic.glb */ \"./src/assets/mushroom_cloud/mushroomRealistic.glb\");\n/* harmony import */ var _components_ar_cursor_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/ar-cursor.component */ \"./src/components/ar-cursor.component.js\");\n/**\r\n * Tabletop prototype with Hit-Testing (Maybe Anchoring) using WebXR, ThreeJS, A-Frame\r\n */\r\n\r\n\r\n\r\n\r\n// Instead of creating the Map on window load, create just the reticle\r\n// When screen is pressed emit an event \"pressed\" that begins to load the model\r\nwindow.onload = () => {\r\n    (0,_components_ar_cursor_component__WEBPACK_IMPORTED_MODULE_2__[\"default\"])()\r\n    createReticle()\r\n}\r\n\r\nfunction createReticle() {\r\n    let container = document.querySelector('a-scene')\r\n\r\n    let reticle = document.createElement('a-entity')\r\n\r\n    reticle.setAttribute('id', 'reticle')\r\n    reticle.setAttribute('gltf-model', _assets_nyc_NYC_glb__WEBPACK_IMPORTED_MODULE_0__[\"default\"])\r\n    reticle.setAttribute('scale', '0.0001 0.0001 0.0001')\r\n\r\n    let mushroom = document.createElement('a-entity')\r\n    mushroom.setAttribute('gltf-model', _assets_mushroom_cloud_mushroomRealistic_glb__WEBPACK_IMPORTED_MODULE_1__[\"default\"])\r\n    mushroom.setAttribute('scale', '0.003 0.005 0.003')\r\n\r\n    container.appendChild(reticle)\r\n}\n\n//# sourceURL=webpack://nukemap-web/./src/entries/table.js?");
 
 /***/ })
 
