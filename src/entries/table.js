@@ -2,6 +2,7 @@
  * Tabletop prototype with Hit-Testing (Maybe Anchoring) using WebXR, ThreeJS, A-Frame
  */
 import nyc_map from '../assets/nyc/NYC.glb'
+import bare_map from '../assets/nyc/nyc3.0.glb'
 import mushroom_cloud from '../assets/mushroom_cloud/mushroomRealistic.glb'
 import registerArCursorComponent from '../components/cursor.component'
 import registerShadowComponent from '../components/shadow.component'
@@ -17,7 +18,7 @@ window.onload = () => {
     let assets = document.querySelector('a-assets')
     let map_asset = document.createElement('a-asset-item')
     map_asset.setAttribute('id', 'city')
-    map_asset.setAttribute('src', nyc_map)
+    map_asset.setAttribute('src', bare_map)
     assets.appendChild(map_asset)
 
     let container = document.getElementById("my-objects")
@@ -28,6 +29,7 @@ window.onload = () => {
     container.appendChild(map)
 }
 
+// NOT IN USE
 function createReticle() {
     let container = document.querySelector('a-scene')
 
