@@ -2,7 +2,8 @@
  * Tabletop prototype with Hit-Testing (Maybe Anchoring) using WebXR, ThreeJS, A-Frame
  */
 import nyc_map from '../assets/nyc/NYC.glb'
-import bare_map from '../assets/nyc/nyc3.0.glb'
+import bare_map from '../assets/nyc/bare_nyc.glb'
+import bare_map_draco from '../assets/nyc/bare_nyc_draco.glb'
 import mushroom_cloud from '../assets/mushroom_cloud/mushroomRealistic.glb'
 import registerArCursorComponent from '../components/cursor.component'
 import registerShadowComponent from '../components/shadow.component'

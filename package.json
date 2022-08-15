@@ -132,7 +132,6 @@
     "terser": "^5.14.1",
     "terser-webpack-plugin": "^5.3.3",
     "three": "^0.142.0",
-    "three-bmfont-text": "^2.4.0",
     "three-buffer-vertex-data": "^1.1.0",
     "timed-out": "^4.0.1",
     "update-browserslist-db": "^1.0.4",
