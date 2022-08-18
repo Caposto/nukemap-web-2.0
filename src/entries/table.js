@@ -3,6 +3,7 @@
  */
 import nyc_map from '../assets/nyc/NYC.glb'
 import bare_map from '../assets/nyc/bare_nyc.glb' // Buildings only
+import manhattan from '../assets/nyc/manhattan.glb'
 import bare_map_draco from '../assets/nyc/bare_nyc_draco.glb'
 import mushroom_cloud from '../assets/mushroom_cloud/nuke_mushroom.glb' // Nick's Mushroom Cloud
 import registerArCursorComponent from '../components/cursor.component'
@@ -16,7 +17,7 @@ async function createNukemapAR() {
     // Add Blender OSM City .glb
     let map_asset = document.createElement('a-asset-item')
     map_asset.setAttribute('id', 'city')
-    map_asset.setAttribute('src', bare_map)
+    map_asset.setAttribute('src', manhattan) // Replace the model here to change the map
     assets.appendChild(map_asset)
 
     // Add Nick's Mushroom Cloud .glb
