@@ -5,12 +5,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode: 'development',
+    /**
+     * Entry specify the scripts that each page uses and establishes the beginning of a dependecy tree
+     * All required modules and functions are imported into the entry
+     * Multiple entries or "chunks" allow different scripts to be minified and outputted to a webpage
+     * Read more here: https://webpack.js.org/concepts/entry-points/
+     */
     entry: {
-        bundle: path.resolve(__dirname, 'src/entries/index.js'), // AR.js marker based prototype
-        mushroom: path.resolve(__dirname, 'src/entries/cloud.js'), // three.js testing ground
-        table: path.resolve(__dirname, 'src/entries/table.js'), // Table Top: Hit-Testing with A-Frame and WebXR
-        map: path.resolve(__dirname, 'src/entries/indexMap.js'), // Table Top AR with Mapbox
-        mapbox: path.resolve(__dirname, 'src/entries/map.js')   // Plain Mapbox GL JS API Testing Ground
+        // FIXME: Create Main Page with buttons that redirect to each page
+        bundle: path.resolve(__dirname, 'src/entries/index.js'), // AR.js: marker-based prototype for mushroom cloud and 
+        table_top: path.resolve(__dirname, 'src/entries/table.js'), // A-Frame & WebXR: Table Top Prototype with hit-testing
+        three_testing: path.resolve(__dirname, 'src/entries/cloud.js'), // three.js testing environment
+        maps_ar: path.resolve(__dirname, 'src/entries/indexMap.js'), // AR.js: marker-based prototype for different maps 
+        mapbox_testing: path.resolve(__dirname, 'src/entries/map.js')   // GL JS API testing environment
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -19,37 +26,36 @@ module.exports = {
     plugins: [
         new Dotenv(),
         new HtmlWebpackPlugin({
-            title: 'Marker AR',
+            title: 'AR.js: Marker-Based AR',
             filename: 'index.html',
             template: 'src/templates/marker.html',
             chunks: ["bundle"],
         }),
         new HtmlWebpackPlugin({
-            title: 'Mushroom Cloud Model',
+            title: 'Three.js Testing Environment',
             filename: 'mushroom.html',
             template: 'src/templates/three.html',
-            chunks: ["mushroom"],
+            chunks: ["three_testing"],
         }),
         new HtmlWebpackPlugin({
             title: 'Tabletop',
             filename: 'tabletop.html',
             template: 'src/templates/table.html',
-            chunks: ["table"],
+            chunks: ["table_top"],
         }),
-        /* HTML Plugin for table top AR - Disabled to avoid wasting API requests
         new HtmlWebpackPlugin({
             title: 'Map AR',
             filename: 'mapar.html',
             template: 'src/templates/marker.html',
-            chunks: ["map"],
-        }) */
-        /* DISABLED ENTRY SO NOT TO WASTE API REQUESTS
+            chunks: ["maps_ar"],
+        }),
+        // DISABLED ENTRY SO NOT TO WASTE API REQUESTS
         new HtmlWebpackPlugin({
             title: 'Mapbox Rendering',
             filename: 'mapbox.html',
             template: 'src/templates/map.html',
-            chunks: ["mapbox"],
-        }) */
+            chunks: ["mapbox_testing"],
+        })
     ],
     module: {
         rules: [
@@ -82,6 +88,8 @@ module.exports = {
         hot: true,
         compress: true,
         historyApiFallback: true,
+        // Settings to setup https dev server
+        // FIXME: See instructions on how to create https folder with self signed certificates
         server: {
             type: 'https',
             options: {
