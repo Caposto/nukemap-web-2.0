@@ -6,11 +6,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     mode: 'development',
     entry: {
-        bundle: path.resolve(__dirname, 'src/entries/index.js'),
-        mushroom: path.resolve(__dirname, 'src/entries/cloud.js'),
-        table: path.resolve(__dirname, 'src/entries/table.js')
-        // map: path.resolve(__dirname, 'src/entries/indexMap.js') // Table Top AR with Mapbox
-        // mapbox: path.resolve(__dirname, 'src/entries/map.js')   // Plain Mapbox GL JS
+        bundle: path.resolve(__dirname, 'src/entries/index.js'), // AR.js marker based prototype
+        mushroom: path.resolve(__dirname, 'src/entries/cloud.js'), // three.js testing ground
+        table: path.resolve(__dirname, 'src/entries/table.js'), // Table Top: Hit-Testing with A-Frame and WebXR
+        map: path.resolve(__dirname, 'src/entries/indexMap.js'), // Table Top AR with Mapbox
+        mapbox: path.resolve(__dirname, 'src/entries/map.js')   // Plain Mapbox GL JS API Testing Ground
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
