@@ -1,7 +1,6 @@
 import nyc_map from '../assets/nyc.jpg'
 import mushroomMarker from '../assets/mushroom-marker.patt'
 import registerMapComponent from '../components/mapbox.component'
-import registerGestureComponents from '../components/gesture.component'
 
 window.onload = () => {
     registerMapComponent()

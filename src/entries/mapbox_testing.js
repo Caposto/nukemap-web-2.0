@@ -1,11 +1,14 @@
-// Code from: https://docs.mapbox.com/mapbox-gl-js/example/3d-buildings/
-
+/**
+ * Code: https://docs.mapbox.com/mapbox-gl-js/example/3d-buildings/
+ * Mapbox GL JS Docs: https://docs.mapbox.com/mapbox-gl-js/api/
+ * This entry is for experimenting with the Mapbox GL JS API
+ */ 
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
 
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY
 
-/* FIXME: Bounds does not affect a 3D rendered map
+/* NOTE: Bounds does not affect a 3D rendered map
 const bounds = [
     [-122.66336, 37.492987], // Southwest coordinates
     [-122.250481, 37.871651] // Northeast coordinates
@@ -23,8 +26,6 @@ const map = new mapboxgl.Map({
     container: 'map',
     antialias: true,
 })
-
-// maxBounds, maxPitch, minPitch, maxTileCacheSize, minTileCacheSizemaxZoom, minZoom, 
      
 map.on('load', () => {
     // Insert the layer beneath any symbol layer.

@@ -1,16 +1,17 @@
 /**
  * Tabletop prototype with Hit-Testing (Maybe Anchoring) using WebXR, ThreeJS, A-Frame
  */
-import nyc_map from '../assets/nyc/NYC.glb'
-import bare_map from '../assets/nyc/bare_nyc.glb' // Buildings only
-import manhattan from '../assets/nyc/manhattan.glb'
-import bare_map_draco from '../assets/nyc/bare_nyc_draco.glb'
+import nyc_map from '../assets/nyc/NYC.glb' // Includes Jersey side, parts of Brooklyn, and Queens (Very Low Performance)
+import bare_map from '../assets/nyc/bare_nyc.glb' // Buildings only (Very Low Performance)
+import manhattan from '../assets/nyc/manhattan.glb' // Manhattan Buildings only (Low-Medium Performance)
 import mushroom_cloud from '../assets/mushroom_cloud/nuke_mushroom.glb' // Nick's Mushroom Cloud
 import registerArCursorComponent from '../components/hit_test/cursor.component'
 import registerShadowComponent from '../components/hit_test/shadow.component'
 import registerMainComponent from '../components/hit_test/main.component'
 
-// Creates 3D Map of NYC and adds Mushroom Cloud over top
+/**
+ * Function that creates a 3D map of NYC (created with Blender OSM) and places a mushroom cloud over top of it
+ */
 async function createNukemapAR() {
     let assets = await document.querySelector('a-assets')
     
@@ -58,6 +59,8 @@ registerShadowComponent()
 registerMainComponent()
 
 let scene = document.querySelector('a-scene')
+
+// This event listener runs once and ensures that a new map is not generated everytime AR mode is activated in one session
 scene.addEventListener("enter-vr", function() {
     createNukemapAR()
     console.log("ENTERING AR, CREATING NUKEMAP")
