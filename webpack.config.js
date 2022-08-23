@@ -36,7 +36,8 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "[name].js",
+        filename: "./[name]/[name].js",
+        clean: true, // Outputs only the bundles in use, deletes the others from dist folder
     },
     /**
      * Simplifies the creation of HTML pages and allows you to specify entries/chunks, HTML templates, and other parameters
@@ -51,7 +52,7 @@ module.exports = {
             chunks: ["bundle"],
         }),
         new HtmlWebpackPlugin({
-            title: 'Tabletop',
+            title: 'Tabletop Prototype',
             filename: 'tabletop.html',
             template: 'src/templates/table_top_template.html',
             chunks: ["table_top"],
