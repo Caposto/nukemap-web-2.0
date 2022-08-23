@@ -30,9 +30,9 @@ module.exports = {
         // FIXME: Create Main Page with buttons that redirect to each page
         bundle: path.resolve(__dirname, 'src/entries/index.js'), // AR.js: marker-based prototype for mushroom cloud and 
         table_top: path.resolve(__dirname, 'src/entries/table_top.js'), // A-Frame & WebXR: Table Top Prototype with hit-testing
-        three_testing: path.resolve(__dirname, 'src/entries/cloud.js'), // three.js testing environment
-        maps_ar: path.resolve(__dirname, 'src/entries/indexMap.js'), // AR.js: marker-based prototype for different maps 
-        mapbox_testing: path.resolve(__dirname, 'src/entries/map.js')   // GL JS API testing environment
+        three_testing: path.resolve(__dirname, 'src/entries/three_testing.js'), // three.js testing environment
+        maps_ar: path.resolve(__dirname, 'src/entries/maps_ar.js'), // AR.js: marker-based prototype for different maps 
+        mapbox_testing: path.resolve(__dirname, 'src/entries/mapbox_testing.js')   // GL JS API testing environment
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -58,7 +58,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             title: 'Three.js Testing Environment',
-            filename: 'mushroom.html',
+            filename: 'threejs.html',
             template: 'src/templates/threejs_template.html',
             chunks: ["three_testing"],
         }),
@@ -68,7 +68,7 @@ module.exports = {
             template: 'src/templates/marker_template.html',
             chunks: ["maps_ar"],
         }),
-        // DISABLED ENTRY SO NOT TO WASTE API REQUESTS
+        // Can Disable to save on API Requests
         new HtmlWebpackPlugin({
             title: 'Mapbox Rendering',
             filename: 'mapbox.html',
