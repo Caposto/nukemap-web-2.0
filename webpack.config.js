@@ -12,7 +12,6 @@
  * This is a work in progress so please excuse if any of the configuration is not optimal, I appreciate any feedback!
  */ 
 
-
 const path = require('path')
 const fs = require('fs')
 const Dotenv = require('dotenv-webpack')
@@ -28,7 +27,7 @@ module.exports = {
      */
     entry: {
         // FIXME: Create Main Page with buttons that redirect to each page 
-        bundle: path.resolve(__dirname, 'src/entries/index.js'),
+        index: path.resolve(__dirname, 'src/entries/index.js'),
         marker: path.resolve(__dirname, 'src/entries/marker.js'), // AR.js: marker-based prototype for mushroom cloud and 
         table_top: path.resolve(__dirname, 'src/entries/table_top.js'), // A-Frame & WebXR: Table Top Prototype with hit-testing
         three_testing: path.resolve(__dirname, 'src/entries/three_testing.js'), // three.js testing environment
@@ -50,7 +49,7 @@ module.exports = {
             title: 'Welcome',
             filename: 'index.html',
             template: 'src/templates/index_template.html',
-            chunks: ["bundle"]
+            chunks: ["index"]
         }),
         new HtmlWebpackPlugin({
             title: 'AR.js: Marker-Based AR',

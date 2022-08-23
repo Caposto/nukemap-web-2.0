@@ -157,6 +157,7 @@
   },
   "devDependencies": {
     "@types/google.maps": "^3.49.2",
+    "bootstrap": "^5.2.0",
     "css-loader": "^6.7.1",
     "cuid": "^2.1.8",
     "dotenv-webpack": "^8.0.0",
