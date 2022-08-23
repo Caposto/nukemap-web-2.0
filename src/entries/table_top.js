@@ -6,9 +6,9 @@ import bare_map from '../assets/nyc/bare_nyc.glb' // Buildings only
 import manhattan from '../assets/nyc/manhattan.glb'
 import bare_map_draco from '../assets/nyc/bare_nyc_draco.glb'
 import mushroom_cloud from '../assets/mushroom_cloud/nuke_mushroom.glb' // Nick's Mushroom Cloud
-import registerArCursorComponent from '../components/cursor.component'
-import registerShadowComponent from '../components/shadow.component'
-import registerMainComponent from '../components/main.component'
+import registerArCursorComponent from '../components/hit_test/cursor.component'
+import registerShadowComponent from '../components/hit_test/shadow.component'
+import registerMainComponent from '../components/hit_test/main.component'
 
 // Creates 3D Map of NYC and adds Mushroom Cloud over top
 async function createNukemapAR() {

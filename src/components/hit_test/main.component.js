@@ -1,3 +1,10 @@
+/**
+ * Credit to this component comes from Ada Rose Cannon's Hit Testing WIth A-Frame Demo 
+ * That project can be found here: https://ar-starter-kit.glitch.me/ (Only on WebXR compatible devices)
+ * The Code: https://glitch.com/edit/#!/flicker-wheat-scar?path=main.js%3A1%3A0
+ * This component handles the DOM-overlay, or the UI that is displayed when entering/exiting AR and when hit-testing is active
+ */
+
 function registerMainComponent() {
     /* jshint esversion: 9 */
     /* global THREE, AFRAME */

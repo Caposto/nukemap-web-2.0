@@ -1,3 +1,10 @@
+/**
+ * Credit to this component comes from Ada Rose Cannon's Hit Testing WIth A-Frame Demo 
+ * That project can be found here: https://ar-starter-kit.glitch.me/ (Only on WebXR compatible devices)
+ * The Code: https://glitch.com/edit/#!/flicker-wheat-scar?path=ar-shadow-helper.js%3A1%3A0
+ * These components generate shadows based on the geometry of attached objects to show where the objects will be placed (like a reticle)
+ */
+
 function registerShadowComponent() {
     /* global AFRAME, THREE */
     (function () {
