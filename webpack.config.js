@@ -27,8 +27,9 @@ module.exports = {
      * Read more here: https://webpack.js.org/concepts/entry-points/
      */
     entry: {
-        // FIXME: Create Main Page with buttons that redirect to each page
-        bundle: path.resolve(__dirname, 'src/entries/index.js'), // AR.js: marker-based prototype for mushroom cloud and 
+        // FIXME: Create Main Page with buttons that redirect to each page 
+        bundle: path.resolve(__dirname, 'src/entries/index.js'),
+        marker: path.resolve(__dirname, 'src/entries/marker.js'), // AR.js: marker-based prototype for mushroom cloud and 
         table_top: path.resolve(__dirname, 'src/entries/table_top.js'), // A-Frame & WebXR: Table Top Prototype with hit-testing
         three_testing: path.resolve(__dirname, 'src/entries/three_testing.js'), // three.js testing environment
         maps_ar: path.resolve(__dirname, 'src/entries/maps_ar.js'), // AR.js: marker-based prototype for different maps 
@@ -46,10 +47,16 @@ module.exports = {
     plugins: [
         new Dotenv(),
         new HtmlWebpackPlugin({
-            title: 'AR.js: Marker-Based AR',
+            title: 'Welcome',
             filename: 'index.html',
+            template: 'src/templates/index_template.html',
+            chunks: ["bundle"]
+        }),
+        new HtmlWebpackPlugin({
+            title: 'AR.js: Marker-Based AR',
+            filename: 'marker.html',
             template: 'src/templates/marker_template.html',
-            chunks: ["bundle"],
+            chunks: ["marker"],
         }),
         new HtmlWebpackPlugin({
             title: 'Tabletop Prototype',

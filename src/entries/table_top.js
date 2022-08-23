@@ -1,6 +1,9 @@
 /**
- * Tabletop prototype with Hit-Testing (Maybe Anchoring) using WebXR, ThreeJS, A-Frame
+ * This entry demonstrates Nukemap Indoor Proof of Concept (Tabletop) with Hit-Testing (Maybe Anchoring) using WebXR, ThreeJS, A-Frame
+ * A-Frame Docs: https://aframe.io/docs/1.3.0/introduction/
+ * WebXR Docs: https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API
  */
+
 import nyc_map from '../assets/nyc/NYC.glb' // Includes Jersey side, parts of Brooklyn, and Queens (Very Low Performance)
 import bare_map from '../assets/nyc/bare_nyc.glb' // Buildings only (Very Low Performance)
 import manhattan from '../assets/nyc/manhattan.glb' // Manhattan Buildings only (Low-Medium Performance)
