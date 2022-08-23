@@ -1,5 +1,5 @@
 /**
- * Credit to this component comes from Ada Rose Cannon's Hit Testing WIth A-Frame Demo 
+ * Credit Ada Rose Cannon (https://github.com/AdaRoseCannon)
  * That project can be found here: https://ar-starter-kit.glitch.me/ (Only on WebXR compatible devices)
  * The Code: https://glitch.com/edit/#!/flicker-wheat-scar?path=ar-cursor.js%3A1%3A0
  * This component handles the raycasting required for a hit-test

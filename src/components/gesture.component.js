@@ -1,7 +1,13 @@
-/* global AFRAME, THREE */
-// Courtesy of https://github.com/fcor/arjs-gestures/blob/master/dist/gestures.js 
+/** 
+ * Credit to Fabio Cortes (https://github.com/fcor)
+ * Code: https://github.com/fcor/arjs-gestures/blob/master/dist/gestures.js
+ * AR.js Documentation: https://ar-js-org.github.io/AR.js-Docs/ui-events/ 
+ * This component allows users to maniuplate the scale and view of an object in marker-based AR
+ * Two Fingers for scale, 1 for rotation (the direction varies depending on wha)
+ */
 
 function registerGestureComponents() {
+  /* global AFRAME, THREE */
   AFRAME.registerComponent("gesture-handler", {
     schema: {
       enabled: { default: true },
