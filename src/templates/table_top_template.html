@@ -1,6 +1,8 @@
 <html>
 
 <head>
+  <!--CREDIT TO: Ada Rose Cannon-->
+  <!--CODE FROM: https://glitch.com/edit/#!/flicker-wheat-scar?path=index.html%3A1%3A0-->
   <script>
     // WebXR requires https: to work so ensure redirected if needed.
     if (location.hostname !== 'localhost' && window.location.protocol === 'http:') window.location.protocol = 'https:';
@@ -47,6 +49,7 @@
     ar-cursor raycaster="objects: #my-objects"
     stats
 	>
+    <!-- preloading assets is recommended in A-Frame -->
     <a-assets>
       <a-mixin id="animations"
         animation__click="property: components.material.material.color; type: color; to: blue; startEvents: click; dur: 500";
@@ -73,14 +76,13 @@
     </a-entity>
 	</a-scene>
 
+  <!-- Displays a UI canvas over the AR experience for text and instructions -->
 	<div id="dom-overlay">
     <h1>
       Nukemap AR
     </h1>
 		<div id="dom-overlay-message">Enter AR to start.</div>
 	</div>
-  
-  <!--<div class="glitchButton" style="position: absolute; top: 1em; right: 1em;"></div><script src="https://button.glitch.me/button.js"></script>-->
 </body>
 
 </html>
