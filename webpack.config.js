@@ -72,7 +72,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Mapbox Rendering',
             filename: 'mapbox.html',
-            template: 'src/templates/map.html',
+            template: 'src/templates/mapbox_template.html',
             chunks: ["mapbox_testing"],
         })
     ],
