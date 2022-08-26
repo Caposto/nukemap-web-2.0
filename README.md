@@ -42,63 +42,6 @@ This is what *webpack.config.js* should look like when you clone the repo.
 
 In order for this to work, you need to create *cert.key, cert.crt,* & *ca.crt.* If you know how to do this with OpenSSL or another method that is fine, but I recommend following [this guide on Stack Overflow by Lee Goddard](https://stackoverflow.com/questions/26663404/webpack-dev-server-running-on-https-web-sockets-secure) that uses mkcert. At the end, put all the files in a folder called *https*.
 
-I will copy the steps to his guide here just so that everything is in one place.
-
-**1. Project configuration**
-
-In your project root run in Powershell (or CMD):
-
-```
-npx mkcert create-ca
-npx mkcert create-cert
-```
-
-Your `webpack.config.js`:
-
-```
-devServer: {
-    // ...
-    https: {
-        key: fs.readFileSync("cert.key"),
-        cert: fs.readFileSync("cert.crt"),
-        ca: fs.readFileSync("ca.crt"),
-    },
-    // ....
-},
-```
-
-**2. Install certificate**
-
-Double-click on `ca.crt` > Install Certificate >
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a9c0aca2-84e7-4d6d-8599-08584e682e72/Untitled.png)
-
-... > Current User > Place all certificates in the following store > Trusted Root Certification Authorities >
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/825be344-3667-4d01-83c7-fe40fe25f8dc/Untitled.png)
-
-... > Finish > Yes
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/967402cf-33ee-4a83-a303-fca327a43a66/Untitled.png)
-
-**3. Check correct installation**
-
-Start > Type: "cert" > Manage User Certificates > ...
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/50d23e03-1243-42e3-816d-e7f175872bee/Untitled.png)
-
-... > Trusted Root Certification Authorities > Certificates > Test CA
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ba2e9737-a745-43e0-8870-60ed2846676a/Untitled.png)
-
-**4. Reload & Test**
-
-Reload your browser, Start yout webpack dev server and check the SSL Certificate validity:
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e28b6e83-f0d2-4abd-9dec-3ee1d48648cf/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/54c19bdf-e9ec-4494-bc71-5345f455b707/Untitled.png)
-
 ### Git LFS (July 30)
 
 Since these web-based AR experiences often require .glb/.gltf files, LFS is necessary to push them to the repository. Git LFS is **ALREADY** enabled on the repository so **IT SHOULD** come installed when you clone it. However if you need to install it manually:
