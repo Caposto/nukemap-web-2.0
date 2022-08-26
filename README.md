@@ -77,6 +77,7 @@ If you need to setup the environment variables again:
 
 1. Run `npm i dotenv-webpack` in the terminal
 2. Add `const Dotenv = require('dotenv-webpack')` to the top of *webpack.config.js*
+3. Create a .env file and add your variables to it
 
 ### Testing on Mobile Device with USB Debugging
 
