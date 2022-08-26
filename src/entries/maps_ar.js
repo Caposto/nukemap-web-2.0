@@ -2,6 +2,9 @@ import nyc_map from '../assets/nyc.jpg'
 import mushroomMarker from '../assets/mushroom-marker.patt'
 import registerMapComponent from '../components/mapbox.component'
 
+// FIXME: Mapbox Token not being detected properly 
+mapbox_token = process.env.MAPBOX_API_KEY
+
 window.onload = () => {
     registerMapComponent()
     createMapAtMarker()
@@ -27,7 +30,7 @@ function createMapAtMarker() {
     map.setAttribute('geometry', 'primitive: plane; width: 4; height: 3;');
     map.setAttribute('material', 'color: #ffffff; shader: flat; side: both; transparent: true');
     map.setAttribute('mapbox', "center: -74.0060, 40.7128; zoom: 8; " +
-                                   "accessToken: pk.eyJ1IjoibWF0dHJlIiwiYSI6IjRpa3ItcWcifQ.s0AGgKi0ai23K5OJvkEFnA; " +
+                                   "accessToken: " +  mapbox_token + "; " +
                                    "style: mapbox://styles/mapbox/outdoors-v10;"); 
     map.setAttribute('rotation', '270, 0, 0')
 
