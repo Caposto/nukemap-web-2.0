@@ -1,13 +1,14 @@
-import mushroomMarker from './assets/mushroom-marker.patt'
-import mushroomModel from './assets/mushroom_cloud/mushroomRealistic.glb'
-import nycModel from './assets/nyc/NYC.glb'
+import registerGestureComponents from "../components/gesture.component";
+import mushroomMarker from '../assets/mushroom-marker.patt'
+import mushroomModel from '../assets/mushroom_cloud/mushroomRealistic.glb'
+import nycModel from '../assets/nyc/NYC.glb'
 
 // Creates AFrame elements to render a mushroom cloud at the specified marker
 function createMarker() {
     // Find a-scene
     let scene = document.querySelector('a-scene');
     
-    // Create Marker
+    // Create Marker with .patt file (can be found on Notion)
     let marker = document.createElement('a-marker');
     marker.setAttribute('type', 'pattern');
     marker.setAttribute('preset', 'custom');
@@ -29,7 +30,7 @@ function createMarker() {
     cloud.setAttribute('scale', '0.003 0.005 0.003');
     cloud.setAttribute('rotation', '0 90 -90'); // For when Marker is veritcal
     cloud.setAttribute('class', 'clickable'); 
-    cloud.setAttribute('gesture-handler', 'minScale: 0.005, maxScale: 0.01'); // For touch events
+    cloud.setAttribute('gesture-handler', 'minScale: 0.005, maxScale: 0.01'); // For touch events (see gesture.component.js)
 
     // Add elements to scene
     marker.appendChild(cloud)
@@ -37,4 +38,8 @@ function createMarker() {
     scene.appendChild(marker);
 }
 
-export default createMarker
+window.onload = () => {
+    registerGestureComponents()
+    createMarker()
+}
+    

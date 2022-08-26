@@ -1,6 +1,8 @@
 /*
- * Code From: https://github.com/mattrei/aframe-mapbox-component
- * Credit to https://github.com/mattrei and https://github.com/jesstelford 
+ * 
+ * Credit to Matthias Treitler (https://github.com/mattrei) and Jess Telford (https://github.com/jesstelford )
+ * Code: https://github.com/mattrei/aframe-mapbox-component
+ * This component uses the Mapbox GL JS API to create a 2D map in AR/VR
 */
 
 require('mapbox-gl/dist/mapbox-gl.css')

@@ -1,8 +1,3 @@
-import registerGestureComponents from "../components/gesture.component";
-import createMarker from "../app"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-window.onload = () => {
-    registerGestureComponents()
-    createMarker()
-}
-    
+console.log("Home Page!")

@@ -1,3 +1,10 @@
+/**
+ * Credit: Bruno Simon & ThreeJS Journey Template
+ * Three.js Journey: https://threejs-journey.com/
+ * Three.js Official Docs: https://threejs.org/
+ * This entry is for experimenting with plain Three.js
+ */
+
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
@@ -6,11 +13,14 @@ const canvas = document.querySelector('canvas.webgl')
 
 const scene = new THREE.Scene()
 
-/** Object */
+/** Mushroom Cloud **/
+
+// Stem
 const baseGeometry = new THREE.CylinderGeometry(1, 1, 5)
 const baseMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 })
 const baseMesh = new THREE.Mesh(baseGeometry, baseMaterial)
 
+// Head
 const topGeometry = new THREE.TorusGeometry(2, 0.8)
 const topMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff })
 const topMesh = new THREE.Mesh(topGeometry, topMaterial)
@@ -41,6 +51,7 @@ window.addEventListener('resize', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
+// Enters/Exits fullscreen when double clicked
 window.addEventListener('dblclick', () => {
     const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
 

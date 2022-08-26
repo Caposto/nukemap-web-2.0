@@ -14,14 +14,106 @@ Full Documentation on [My Notion](https://www.notion.so/NUKEMAP-AR-ca1ff0db55214
 
 ## Installation
 
-`git clone https://github.com/Caposto/nukemap-web-2.0.git`
+This page will provide instructions and resources for setting up the environment for testing Augmented-Reality with the project Repository. Make sure you have Node.js installed on your computer. [Install Node here](https://nodejs.org/en/download/)
 
-`npm install`
+### Cloning Repository: [nukemap-web-2.0](https://github.com/Caposto/nukemap-web-2.0)
 
-Create an account with [Mapbox](https://www.mapbox.com/) and get an API key
+```jsx
+git clone https://github.com/Caposto/nukemap-web-2.0.git
+npm install
+```
 
-`npm run dev` to run webpack server (configure it to be on HTTPS)
+### HTTPS Dev Server (July 11)
 
-## Resources & Credits
+A-Frame needs to run on https. *webpack.config.js* is already setup to run https, however you need to create the SSL certificates yourself and add them to .*gitignore.*
+
+This is what *webpack.config.js* should look like when you clone the repo.
+
+```jsx
+				server: {
+            type: 'https',
+            options: {
+                key: fs.readFileSync(path.resolve(__dirname, 'https/cert.key')),
+                cert: fs.readFileSync(path.resolve(__dirname, 'https/cert.crt')),
+                ca: fs.readFileSync(path.resolve(__dirname, 'https/ca.crt'))
+            }
+        },
+```
+
+In order for this to work, you need to create *cert.key, cert.crt,* & *ca.crt.* If you know how to do this with OpenSSL or another method that is fine, but I recommend following [this guide on Stack Overflow by Lee Goddard](https://stackoverflow.com/questions/26663404/webpack-dev-server-running-on-https-web-sockets-secure) that uses mkcert. At the end, put all the files in a folder called *https*.
+
+### Git LFS (July 30)
+
+Since these web-based AR experiences often require .glb/.gltf files, LFS is necessary to push them to the repository. Git LFS is **ALREADY** enabled on the repository so **IT SHOULD** come installed when you clone it. However if you need to install it manually:
+
+Run these on the terminal
+
+```jsx
+git install lfs
+git lfs track "*glb"
+```
+
+Your *.gitattributes* file should look like this
+
+```jsx
+*.glb filter=lfs diff=lfs merge=lfs -text
+```
+
+Click [here](https://git-lfs.github.com/) for official Git LFS Documentation.
+
+### Environment Variables
+
+Currently the only environment variable is the Mapbox GL JS API Token. You can get an access token by making a free account at [Mapbox](https://www.mapbox.com/).
+
+The setup is already complete, you just have to create a *.env* and add the token to it:
+
+*.env*
+
+```jsx
+MAPBOX_API_KEY="sometoken"
+```
+
+If you need to setup the environment variables again:
+
+1. Run `npm i dotenv-webpack` in the terminal
+2. Add `const Dotenv = require('dotenv-webpack')` to the top of *webpack.config.js*
+3. Create a .env file and add your variables to it
+
+### Testing on Mobile Device with USB Debugging
+
+AR experiences only work on certain devices such as mobile phones or AR glasses. In addition, WebXR is only compatible with certain browsers ([click here for compatible browsers](https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API#browser_compatibility)) and devices ([click here for compatible devices](https://developers.google.com/ar/devices)). Unfortunately, Safari does not support WebXR, and even Apple phones that run Chrome will not be able to utilize the API at present. Nevertheless, if you posses an Android phone that can run WebXR, you will need to connect it to your development device/computer to run and test the web server. 
+
+1. Connect Computer to device with a USB cord
+2. On the mobile device go Settings → Developer Options → USB Debugging and turn it on
+
+![0.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6ab94d64-0acd-4bd3-b834-77f16c732821/0.jpg)
+
+1. On your computer open Chrome and search `chrome://inspect/#devices` 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c066fec4-1761-43d3-8f20-f20218f1bf61/Untitled.png)
+
+Make sure that port 3000 is there. If you need to use a different port, make sure to change the setting in *webpack.config.js*
+
+1. Use this command in the terminal to activate the server: `npm run dev`
+
+*Computer View*
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8bac1e2e-1ef9-4003-b0af-e8ced2671a7f/Untitled.png)
+
+You should now be able to run the code from the repository. For the marker-based experiences, click on the Mushroom Marker tag in the Notion documentation to get the picture (it is already linked as a .patt file in the code).
+
+### Main Development Resources
+
+[A-Frame](https://aframe.io/)
+
+[WebXR](https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API)
+
+[Three.js](https://threejs.org/)
+
+[AR.js](https://ar-js-org.github.io/AR.js-Docs/)
+
+[8th Wall](https://www.8thwall.com/)
+
+[Google ARCore](https://developers.google.com/ar)
 
 
