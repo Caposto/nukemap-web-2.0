@@ -30,7 +30,7 @@ A-Frame needs to run on https. *webpack.config.js* is already setup to run https
 This is what *webpack.config.js* should look like when you clone the repo.
 
 ```jsx
-				server: {
+		server: {
             type: 'https',
             options: {
                 key: fs.readFileSync(path.resolve(__dirname, 'https/cert.key')),
@@ -86,11 +86,11 @@ AR experiences only work on certain devices such as mobile phones or AR glasses.
 1. Connect Computer to device with a USB cord
 2. On the mobile device go Settings → Developer Options → USB Debugging and turn it on
 
-![0.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6ab94d64-0acd-4bd3-b834-77f16c732821/0.jpg)
+![0.jpg](readme_images/developer_options.jpg)
 
 1. On your computer open Chrome and search `chrome://inspect/#devices` 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c066fec4-1761-43d3-8f20-f20218f1bf61/Untitled.png)
+![Untitled](readme_images/port_forwarding.png)
 
 Make sure that port 3000 is there. If you need to use a different port, make sure to change the setting in *webpack.config.js*
 
@@ -98,7 +98,7 @@ Make sure that port 3000 is there. If you need to use a different port, make sur
 
 *Computer View*
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8bac1e2e-1ef9-4003-b0af-e8ced2671a7f/Untitled.png)
+![Untitled](readme_images/homepage_computer.png)
 
 You should now be able to run the code from the repository. For the marker-based experiences, click on the Mushroom Marker tag in the Notion documentation to get the picture (it is already linked as a .patt file in the code).
 
