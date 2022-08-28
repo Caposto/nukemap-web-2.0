@@ -8,6 +8,9 @@ My goal is to create two different modes of visualizing mushroom clouds in AR.
 
 1. ***Indoor Marker/Table Top Visualization*** : Mushroom cloud models will be rendered on 2D and 3D maps and users will be allowed to rotate & scale the models. I am currently using the Mapbox GL JS Library to create accurate maps. Ideally, the user will be able to select specific locations and yield for the nuke itself.
 
+Proof Of Concept:
+https://user-images.githubusercontent.com/94158310/187090115-f1c3fce5-726c-4853-afa0-f8775ac076ea.mp4
+
 2. ***Outdoor/"Street View"*** : This feature will capitalize off of AR.js' location-based functionlaity to render mushroom clouds in front of the user as if they were really there. This would help people appreciate the truly massive scale of these weapons. In order for locaton-based to work however, AR.js recommends the user be outside, hence the indoor & outdoor distinction between the two features.
 
 Full Documentation on [My Notion](https://www.notion.so/NUKEMAP-AR-ca1ff0db5521413f88855b38fbb2462b)
