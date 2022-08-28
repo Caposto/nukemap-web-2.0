@@ -30,14 +30,14 @@ A-Frame needs to run on https. *webpack.config.js* is already setup to run https
 This is what *webpack.config.js* should look like when you clone the repo.
 
 ```jsx
-		server: {
-            type: 'https',
-            options: {
-                key: fs.readFileSync(path.resolve(__dirname, 'https/cert.key')),
-                cert: fs.readFileSync(path.resolve(__dirname, 'https/cert.crt')),
-                ca: fs.readFileSync(path.resolve(__dirname, 'https/ca.crt'))
-            }
-        },
+server: {
+    type: 'https',
+        options: {
+            key: fs.readFileSync(path.resolve(__dirname, 'https/cert.key')),
+            cert: fs.readFileSync(path.resolve(__dirname, 'https/cert.crt')),
+            ca: fs.readFileSync(path.resolve(__dirname, 'https/ca.crt'))
+        }
+    },
 ```
 
 In order for this to work, you need to create *cert.key, cert.crt,* & *ca.crt.* If you know how to do this with OpenSSL or another method that is fine, but I recommend following [this guide on Stack Overflow by Lee Goddard](https://stackoverflow.com/questions/26663404/webpack-dev-server-running-on-https-web-sockets-secure) that uses mkcert. At the end, put all the files in a folder called *https*.

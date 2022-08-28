@@ -1,6 +1,6 @@
-import registerGestureComponents from "../components/gesture.component";
+import registerGestureComponents from "../components/gesture.component"
 import mushroomMarker from '../assets/mushroom-marker.patt'
-import mushroomModel from '../assets/mushroom_cloud/mushroomRealistic.glb'
+import mushroomModel from '../assets/mushroom_cloud/nuke_mushroom.glb'
 import nycModel from '../assets/nyc/NYC.glb'
 
 // Creates AFrame elements to render a mushroom cloud at the specified marker
@@ -27,7 +27,7 @@ function createMarker() {
     let cloud = document.createElement('a-entity');
     cloud.setAttribute('gltf-model', mushroomModel);
     cloud.setAttribute('position', '0 -1 0');
-    cloud.setAttribute('scale', '0.003 0.005 0.003');
+    cloud.setAttribute('scale', '0.05 0.05 0.05');
     cloud.setAttribute('rotation', '0 90 -90'); // For when Marker is veritcal
     cloud.setAttribute('class', 'clickable'); 
     cloud.setAttribute('gesture-handler', 'minScale: 0.005, maxScale: 0.01'); // For touch events (see gesture.component.js)
